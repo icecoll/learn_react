@@ -24,7 +24,7 @@ JSX让你可以在javascript中写html标签,react会将其解析成javascript.
 1. import React from 'react';
 2. 使用ReactDOM.render时,传入的html必须是`<tag>...</tag>`这种格式,不能出现兄弟节点`<tag></tag><tag></tag>`,
 如果需要, 就再套一层`<div><tag></tag><tag></tag></div>`
-3. 在html标签中用{}使用javascript变量
+3. 在html标签中通过{}使用javascript变量
 ```
 const title = 'foo'
 <h1>{title}</h1>
@@ -48,9 +48,6 @@ class Props extends Component {
   }
 }
 ```
-
-
-
 
 ## 基本用法
 ```
