@@ -1,0 +1,20 @@
+## 准备
+- nodejs
+- npm
+- webpack
+```
+npm install
+```
+
+## 基本概念
+#### Component
+
+#### JSX
+```
+import React from 'react'
+import ReactDom from 'react-dom'
+
+ReactDOM.render(<h1>hello react</h1>, document.getElementById("root"))
+# 这里可以直接在js中使用html标签，是因为react的JSX
+# 使用JSX需要`import React from 'react'`.
+```
