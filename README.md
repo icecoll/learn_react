@@ -6,6 +6,11 @@
 npm install
 ```
 
+如果不熟悉javascript,至少需要知道以下几点
+1. `let` 和 `const`
+2. 箭头函数
+
+
 ## 基本概念
 #### Component
 组件, 用react,可以将页面拆分成一个个的组件. 比如:
@@ -32,7 +37,7 @@ const title = 'foo'
 
 #### Props
 `props`用来传递参数给组件. react Component默认接收`props`作为参数;
-在组件上通过`<Example xxx='foo' />`的方式定义参数，在组件中通过`this.props.xxx(参数名称)`获取参数值.
+在组件上通过`<Example xxx='foo' />`的方式定义参数，在组件中通过`this.props.xxx(参数名称)`获取参数值, props属性的值是不能被修改的.
 ```
 
 <Props content="value of props.content" />
@@ -48,6 +53,28 @@ class Props extends Component {
   }
 }
 ```
+
+#### State
+Component状态, 可以修改, 需要注意的是通过赋值的方式与调用`setState`方法的区别，`setState`方式修改会同时同步组件上的值，如果在子组件中用到了state的值，也会同时更新子组件。
+```
+//在constructor中初始化state
+constructor() {
+    super()
+    this.state = { count: 1 }
+}
+
+//在组件上通过this.state.xxx使用state
+<div>child state: {this.props.count}</div>
+<ChildComponent count={this.state.count} />
+
+//通过setState修改state,传入的是一个函数，参数表示之前的state值
+this.setState(preState => {
+  return { count: preState.count + 1 }
+})
+
+```
+
+
 
 ## 基本用法
 ```
@@ -72,3 +99,5 @@ const styles = {color: "red"}
 const styles = {fontSize: '40px', color: 'green'}
 <p style={styles}>hello</p>
 ```
+
+## react-router
